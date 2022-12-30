@@ -1,6 +1,7 @@
 import './bootstrap';
 import '../css/app.css';
 
+import LaravelPermissionToVueJS from 'laravel-permission-to-vuejs'
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
@@ -15,6 +16,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(LaravelPermissionToVueJS)
             .use(ZiggyVue, Ziggy)
             .mount(el);
     },
